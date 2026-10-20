@@ -1,0 +1,149 @@
+feedback,sentiment,emotion,category
+"Amazing product, excellent quality and fast delivery",Positive,Joy,Product Quality
+"I love this, it works perfectly",Positive,Joy,Product Quality
+"Very happy with the service, thank you",Positive,Joy,Customer Service
+The package arrived early and everything was great,Positive,Joy,Delivery
+Good value for money and easy to use,Positive,Joy,Pricing
+"The product is okay, nothing special",Neutral,Neutral,Product Quality
+It is average and does what it says,Neutral,Neutral,Product Quality
+I have a question about my payment,Neutral,Neutral,Payment
+Can you tell me when my order will arrive,Neutral,Neutral,Delivery
+I need help with my account,Neutral,Neutral,Technical Issue
+"Terrible product, it broke after one day",Negative,Anger,Product Quality
+My order is late and I am very disappointed,Negative,Anger,Delivery
+"I was charged twice, fix my payment now",Negative,Anger,Payment
+The app keeps crashing and nothing works,Negative,Anger,Technical Issue
+Customer support was rude and unhelpful,Negative,Anger,Customer Service
+"I want a refund, this is unacceptable",Negative,Anger,Refund / Return
+I am worried my personal details are not safe,Negative,Fear,Technical Issue
+I feel sad because the gift arrived damaged,Negative,Sadness,Delivery
+"Wow, the upgrade is much better than expected",Positive,Surprise,Product Quality
+The price is too expensive for this quality,Negative,Anger,Pricing
+How do I return this item,Neutral,Neutral,Refund / Return
+The refund has not arrived yet,Negative,Sadness,Refund / Return
+Excellent support team solved my issue quickly,Positive,Joy,Customer Service
+I cannot log in to my account,Negative,Anger,Technical Issue
+Delivery was quick and the package was safe,Positive,Joy,Delivery
+The product is defective and damaged,Negative,Anger,Product Quality
+I am afraid I will lose my money,Negative,Fear,Payment
+Unexpected charge appeared on my bill,Negative,Surprise,Payment
+The website is simple and easy to navigate,Positive,Joy,Technical Issue
+Please cancel my order and return my money,Negative,Anger,Refund / Return
+The quality is very poor,Negative,Anger,Product Quality
+The item is bad quality,Negative,Anger,Product Quality
+I am unhappy with the product,Negative,Sadness,Product Quality
+The product is wonderful,Positive,Joy,Product Quality
+I am extremely satisfied with my purchase,Positive,Joy,Product Quality
+The delivery took too long,Negative,Anger,Delivery
+My package never arrived,Negative,Sadness,Delivery
+The support team was excellent,Positive,Joy,Customer Service
+I am scared my account has been hacked,Negative,Fear,Technical Issue
+The unexpected replacement was amazing,Positive,Surprise,Product Quality
+"The build quality exceeds all my expectations, truly durable",Positive,Joy,Product Quality
+Superb craftsmanship and premium materials used,Positive,Joy,Product Quality
+Stunning design and works flawlessly out of the box,Positive,Joy,Product Quality
+Surprisingly sturdy construction for such a lightweight device,Positive,Surprise,Product Quality
+I was shocked by how crisp and vibrant the display is,Positive,Surprise,Product Quality
+The color looks slightly different in person but the material is standard,Neutral,Neutral,Product Quality
+Product specifications match the description on the website,Neutral,Neutral,Product Quality
+The device dimensions are as advertised in the manual,Neutral,Neutral,Product Quality
+It performs moderately well for everyday basic tasks,Neutral,Neutral,Product Quality
+The material feels cheap and fragile in hand,Negative,Anger,Product Quality
+"Completely defective unit, won't even power on",Negative,Anger,Product Quality
+"Terrible quality, completely broke immediately",Negative,Anger,Product Quality
+I am sad that the screen cracked on the first day of use,Negative,Sadness,Product Quality
+Disheartened by how poorly this performs compared to older models,Negative,Sadness,Product Quality
+I fear the battery is overheating and might catch fire,Negative,Fear,Product Quality
+"The casing makes strange burning smells, looks dangerous and unsafe",Negative,Fear,Product Quality
+Shocked to find missing parts and scratches right out of the sealed box,Negative,Surprise,Product Quality
+"Arrived a day earlier than scheduled, super fast shipping",Positive,Joy,Delivery
+Courier was very polite and handled the fragile package with care,Positive,Joy,Delivery
+Seamless delivery experience from dispatch to doorstep,Positive,Joy,Delivery
+I was astonished that it arrived within 24 hours of ordering,Positive,Surprise,Delivery
+Tracking updates were sent consistently until delivery was complete,Neutral,Neutral,Delivery
+Package was left at the front porch as instructed in delivery notes,Neutral,Neutral,Delivery
+Estimated delivery date is showing next Tuesday,Neutral,Neutral,Delivery
+Driver was extremely rude and threw the box over my gate,Negative,Anger,Delivery
+Delivery has been delayed for three weeks with zero updates,Negative,Anger,Delivery
+"The package arrived broken and damaged, worst delivery ever",Negative,Anger,Delivery
+My parcel arrived completely damaged and broken,Negative,Anger,Delivery
+"Delivery was terrible, box was smashed and contents ruined",Negative,Anger,Delivery
+Package was badly damaged during transit,Negative,Anger,Delivery
+"Worst delivery service, arrived late and damaged",Negative,Anger,Delivery
+I feel so disappointed because my anniversary gift never arrived,Negative,Sadness,Delivery
+Saddened that the delivery person mishandled and crushed the parcel,Negative,Sadness,Delivery
+I am terrified my expensive package was stolen from my doorstep,Negative,Fear,Delivery
+Worried that the shipment tracking has been completely stuck for days,Negative,Fear,Delivery
+Astonished to see the delivery status marked as delivered when no one came,Negative,Surprise,Delivery
+The representative went above and beyond to resolve my inquiry,Positive,Joy,Customer Service
+"Friendly, courteous, and knowledgeable support agent on the phone",Positive,Joy,Customer Service
+Prompt and helpful response from the customer care team,Positive,Joy,Customer Service
+Amazed at how quickly the agent answered my chat request,Positive,Surprise,Customer Service
+Spoke with support regarding warranty terms and conditions,Neutral,Neutral,Customer Service
+Representative provided the ticket reference number for follow-up,Neutral,Neutral,Customer Service
+Inquired with the help desk about business operating hours,Neutral,Neutral,Customer Service
+"Worst customer support ever, the agent hung up on me",Negative,Anger,Customer Service
+"Ignored my support emails for two weeks, completely unacceptable",Negative,Anger,Customer Service
+"Horrible customer service, worst experience ever",Negative,Anger,Customer Service
+Heartbroken that the support team refused to help with my issue,Negative,Sadness,Customer Service
+Felt completely ignored and uncared for by the service representative,Negative,Sadness,Customer Service
+I fear the support representative shared my phone number with scammers,Negative,Fear,Customer Service
+Afraid that customer service will not honor our written warranty,Negative,Fear,Customer Service
+Shocked by how unprofessional and dismissive the support agent was,Negative,Surprise,Customer Service
+Payment processed smoothly with multiple convenient options available,Positive,Joy,Payment
+Checkout was lightning fast and the discount code applied automatically,Positive,Joy,Payment
+Smooth payment gateway with instant transaction confirmation,Positive,Joy,Payment
+Surprised to see a cashback reward credited to my account instantly,Positive,Surprise,Payment
+Receipt and invoice were emailed immediately after payment,Neutral,Neutral,Payment
+Which payment methods and credit cards do you accept,Neutral,Neutral,Payment
+Waiting for the payment authorization pending on my bank statement,Neutral,Neutral,Payment
+"Charged three times for a single order, refund my money immediately",Negative,Anger,Payment
+"Payment gateway failed but debited my bank account, absolute disaster",Negative,Anger,Payment
+Disappointed that the promised promotional discount was not applied to billing,Negative,Sadness,Payment
+Sad that hidden transaction fees were added without prior notice,Negative,Sadness,Payment
+I am terrified that my credit card credentials were leaked during checkout,Negative,Fear,Payment
+Suspicious fraud charges appeared on my card after purchasing on this site,Negative,Fear,Payment
+Horrified to find an unauthorized recurring subscription charge,Negative,Surprise,Payment
+"Incredible pricing for such high-end features, absolute steal",Positive,Joy,Pricing
+"Affordable, reasonable, and best value for money in this category",Positive,Joy,Pricing
+Competitive prices compared to all other competitors on the market,Positive,Joy,Pricing
+Pleasantly surprised by the generous student discount offered,Positive,Surprise,Pricing
+What are your annual subscription pricing tiers and plans,Neutral,Neutral,Pricing
+Prices are comparable with standard market rates,Neutral,Neutral,Pricing
+Looking for information on bulk enterprise volume discounts,Neutral,Neutral,Pricing
+"Prices increased by 50% without any warning or added value, total greed",Negative,Anger,Pricing
+"Exorbitant renewal cost, completely ripping off loyal customers",Negative,Anger,Pricing
+"Can no longer afford this service after the steep price hike, very sad",Negative,Sadness,Pricing
+Regret purchasing because the subscription price is too high for my budget,Negative,Sadness,Pricing
+Afraid that hidden price increases will continue every billing cycle,Negative,Fear,Pricing
+Worried that price changes will lock out small business owners like us,Negative,Fear,Pricing
+Astounded by the sudden price surge during checkout,Negative,Surprise,Pricing
+"The software is fast, responsive, and has zero bugs",Positive,Joy,Technical Issue
+Latest update fixed all glitches and now runs like a charm,Positive,Joy,Technical Issue
+"Smooth performance, intuitive interface, and no lag whatsoever",Positive,Joy,Technical Issue
+Astonished by how fast the new algorithm loads heavy datasets,Positive,Surprise,Technical Issue
+Need guidance on how to export reports in PDF format,Neutral,Neutral,Technical Issue
+Is there an API available for syncing with our internal database,Neutral,Neutral,Technical Issue
+The system requires an update to version 2.4,Neutral,Neutral,Technical Issue
+"Cannot access my account, login page is throwing 500 error",Negative,Anger,Technical Issue
+"App crashes constantly every time I try to save my work, furious",Negative,Anger,Technical Issue
+"Worst app ever, crashing constantly and freezing",Negative,Anger,Technical Issue
+"Lost all my unsaved project files due to a sudden system crash, so upsetting",Negative,Sadness,Technical Issue
+Feeling down because the bug prevented me from submitting my work on time,Negative,Sadness,Technical Issue
+I am scared my database has been hacked and corrupted,Negative,Fear,Technical Issue
+Fearful that security vulnerability in the portal compromised my password,Negative,Fear,Technical Issue
+Baffled that the app crashed right in the middle of a simple task,Negative,Surprise,Technical Issue
+Hassle-free return policy and money was refunded within hours,Positive,Joy,Refund / Return
+Return pickup was scheduled immediately without any questions asked,Positive,Joy,Refund / Return
+"Prompt refund processing, highly trustworthy seller",Positive,Joy,Refund / Return
+Amazed that the return process took less than five minutes at the drop-off,Positive,Surprise,Refund / Return
+Where should I ship the package for return inspection,Neutral,Neutral,Refund / Return
+What is the return window duration for electronics,Neutral,Neutral,Refund / Return
+Tracking my returned parcel back to your fulfillment center,Neutral,Neutral,Refund / Return
+"Refusing my legitimate refund request is illegal and fraud, return my funds",Negative,Anger,Refund / Return
+"I have been demanding a refund for a defective item for a month, scam!",Negative,Anger,Refund / Return
+Disheartened because my return was rejected despite following all instructions,Negative,Sadness,Refund / Return
+Sad that I have to return this gift because it didn't fit properly,Negative,Sadness,Refund / Return
+Scared that the company will keep my returned product and my money,Negative,Fear,Refund / Return
+Afraid that the return deadline will pass before customer service replies,Negative,Fear,Refund / Return
+Surprised and appalled that a 20% restocking fee was deducted from my refund,Negative,Surprise,Refund / Return

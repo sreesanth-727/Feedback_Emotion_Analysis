@@ -1,0 +1,283 @@
+{% extends "base.html" %}
+
+{% block title %}About &amp; Architecture Documentation - FeedbackIQ{% endblock %}
+
+{% block content %}
+<div class="about-container">
+
+  <!-- Hero Section -->
+  <div class="about-hero">
+    <div style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #818cf8; margin-bottom: 0.5rem;">
+      Sona College of Technology &bull; Department of CSE
+    </div>
+    <h1 class="about-hero-title">About FeedbackIQ</h1>
+    <p class="about-hero-subtitle">
+      An intelligent, lightweight, open-source AI system designed to automatically ingest unstructured customer feedback, classify sentiment and emotional drivers, map issue categories, and triage urgency for immediate resolution.
+    </p>
+  </div>
+
+  <!-- Section 1: Overview & Problem Statement -->
+  <div class="panel">
+    <div class="panel-header">
+      <h2 class="panel-title">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"></line>
+          <line x1="12" y1="16" x2="12" y2="12"></line>
+          <line x1="12" y1="8" x2="12.01" y2="8"></line>
+        </svg>
+        1. Project Overview &amp; Motivation
+      </h2>
+    </div>
+    <div class="panel-body" style="line-height: 1.6; color: var(--text-secondary); font-size: 0.92rem;">
+      <p style="margin-bottom: 0.75rem;">
+        Modern consumer enterprises receive thousands of unstructured feedback items daily through customer support desks, product reviews, email surveys, and social channels. Manual review of these large volumes is inherently slow, subjective, and non-scalable, frequently resulting in critical customer grievances (such as double charges, shipping failures, or safety risks) getting lost in the queue.
+      </p>
+      <p>
+        <strong>FeedbackIQ</strong> solves this bottleneck by providing a locally deployable, completely open-source NLP and Machine Learning solution that operates with zero commercial API dependencies. It extracts actionable intelligence in milliseconds, prioritizing urgent negative tickets to protect customer trust and operational efficiency.
+      </p>
+    </div>
+  </div>
+
+  <!-- Section 2: 4-Layer System Architecture -->
+  <div class="panel">
+    <div class="panel-header">
+      <h2 class="panel-title">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+          <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+          <line x1="6" y1="6" x2="6.01" y2="6"></line>
+          <line x1="6" y1="18" x2="6.01" y2="18"></line>
+        </svg>
+        2. Four-Layer Modular Architecture (Report Chapter 3)
+      </h2>
+    </div>
+    <div class="panel-body">
+      <p style="color: var(--text-secondary); font-size: 0.92rem; margin-bottom: 1.25rem;">
+        FeedbackIQ is structured into four decoupled layers adhering to clean separation of concerns, ensuring transparent data flow, reproducibility, and minimal memory footprint:
+      </p>
+
+      <div class="arch-grid">
+        <!-- Layer 1 -->
+        <div class="arch-card">
+          <span class="arch-layer-number">Layer 1</span>
+          <h3 class="arch-card-title">Presentation Layer</h3>
+          <p class="arch-card-desc">
+            Responsive HTML5, modern CSS3 styling, vanilla JavaScript, and Chart.js dashboards. Provides KPI metrics cards, interactive sentiment doughnut charts, emotion frequency bars, category volumes, single-entry testing, and searchable audit logs.
+          </p>
+        </div>
+
+        <!-- Layer 2 -->
+        <div class="arch-card">
+          <span class="arch-layer-number">Layer 2</span>
+          <h3 class="arch-card-title">Application Layer</h3>
+          <p class="arch-card-desc">
+            Flask 3.x web server routing, HTTP request validation, file parsing for batch CSV and TXT streams, flash alert notifications, and orchestration services connecting endpoints with the ML and database layers.
+          </p>
+        </div>
+
+        <!-- Layer 3 -->
+        <div class="arch-card">
+          <span class="arch-layer-number">Layer 3</span>
+          <h3 class="arch-card-title">NLP &amp; Machine Learning Layer</h3>
+          <p class="arch-card-desc">
+            Text preprocessing (normalization, punctuation cleaning, tokenization), TF-IDF sublinear vectorization (1–2 n-grams), balanced Logistic Regression classifiers, and the rule-based urgency triage inference engine.
+          </p>
+        </div>
+
+        <!-- Layer 4 -->
+        <div class="arch-card">
+          <span class="arch-layer-number">Layer 4</span>
+          <h3 class="arch-card-title">Data Layer</h3>
+          <p class="arch-card-desc">
+            Local SQLite database (<code>feedback.db</code>) ensuring ACID compliance and instant startup, serialized Scikit-learn model artifacts (Joblib), and training/sample data stores with zero external database server overhead.
+          </p>
+        </div>
+      </div>
+
+      <div class="code-box">
+┌─────────────────────────────────────────────────────────────┐
+│                  Presentation Layer                         │
+│  (HTML5 + Modern CSS + JavaScript + Chart.js)              │
+│  • KPI summary cards, interactive charts, audit history    │
+└───────────────────────────┬─────────────────────────────────┘
+                            │ HTTP (Flask Jinja2 / JSON)
+┌───────────────────────────▼─────────────────────────────────┐
+│                  Application Layer                          │
+│  (Flask routes, CSV/TXT validation, Service Orchestration)  │
+└───────────────────────────┬─────────────────────────────────┘
+                            │ Function Calls
+┌───────────────────────────▼─────────────────────────────────┐
+│               NLP &amp; Machine Learning Layer                  │
+│  • Clean &amp; Tokenize → TF-IDF Vectorizer → LogisticRegression │
+│  • Sentiment, Emotion &amp; Category models + Priority Engine   │
+└───────────────────────────┬─────────────────────────────────┘
+                            │ SQL &amp; File I/O
+┌───────────────────────────▼─────────────────────────────────┐
+│                      Data Layer                             │
+│  • SQLite (feedback table) + Joblib model artifacts         │
+└─────────────────────────────────────────────────────────────┘</div>
+    </div>
+  </div>
+
+  <!-- Section 3: ML Pipeline -->
+  <div class="panel">
+    <div class="panel-header">
+      <h2 class="panel-title">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+          <polyline points="2 17 12 22 22 17"></polyline>
+          <polyline points="2 12 12 17 22 12"></polyline>
+        </svg>
+        3. Machine Learning &amp; Classification Pipeline
+      </h2>
+    </div>
+    <div class="panel-body" style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6;">
+      <p style="margin-bottom: 1rem;">
+        The system utilizes a supervised machine learning pipeline engineered for high inference throughput, strong interpretability, and robust performance on noisy consumer texts:
+      </p>
+
+      <ul style="padding-left: 1.5rem; margin-bottom: 1.25rem;">
+        <li style="margin-bottom: 0.5rem;">
+          <strong>Preprocessing &amp; Normalization:</strong> Input feedback is stripped of HTML/special character noise, converted to lowercase, and normalized to remove extraneous whitespace while preserving emotional punctuation cues.
+        </li>
+        <li style="margin-bottom: 0.5rem;">
+          <strong>TF-IDF Feature Representation:</strong> Implemented via <code>TfidfVectorizer(ngram_range=(1, 2), sublinear_tf=True)</code>. Sublinear term frequency scaling dampens the effect of repetitive tokens, while unigram and bigram extraction captures critical phrasing such as <em>"not working"</em>, <em>"charged twice"</em>, and <em>"extremely good"</em>.
+        </li>
+        <li style="margin-bottom: 0.5rem;">
+          <strong>Logistic Regression Classifiers:</strong> Configured with <code>class_weight='balanced'</code> and <code>max_iter=1000</code>. Logistic Regression provides fast convergence, probabilistic confidence estimates, and high resilience against overfitting on sparse text matrices.
+        </li>
+        <li>
+          <strong>Multi-Dimensional Taxonomy:</strong>
+          <div style="margin-top: 0.4rem; display: flex; flex-wrap: wrap; gap: 0.4rem;">
+            <span class="badge badge-sentiment-positive">Sentiments: Positive, Neutral, Negative</span>
+            <span class="badge badge-emotion-joy">Emotions: Joy, Anger, Sadness, Fear, Surprise, Neutral</span>
+            <span class="badge badge-category">Categories: Product Quality, Delivery, Customer Service, Payment, Pricing, Technical Issue, Refund / Return</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Section 4: Priority Rules Logic (Table 3.3) -->
+  <div class="panel">
+    <div class="panel-header">
+      <h2 class="panel-title">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+          <line x1="12" y1="9" x2="12" y2="13"></line>
+          <line x1="12" y1="17" x2="12.01" y2="17"></line>
+        </svg>
+        4. Priority Triage Rules (Report Table 3.3)
+      </h2>
+    </div>
+    <div class="panel-body">
+      <p style="color: var(--text-secondary); font-size: 0.92rem; margin-bottom: 1rem;">
+        Priority classification utilizes a deterministic hybrid rules engine combining sentiment, detected emotion, and urgent keyword triggers:
+      </p>
+
+      <div class="table-responsive">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th style="width: 140px;">Priority Level</th>
+              <th>Deterministic Conditions &amp; Signal Matrix</th>
+              <th>Operational Action &amp; SLA</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <span class="badge badge-priority-high">🚨 HIGH</span>
+              </td>
+              <td style="font-size: 0.88rem; line-height: 1.5;">
+                <strong>Negative Sentiment</strong> accompanied by <strong>Anger</strong> or <strong>Fear</strong> emotions, OR matching critical urgency keywords:
+                <br>
+                <code style="font-size: 0.78rem; background: #fee2e2; color: #991b1b; padding: 2px 6px; border-radius: 4px;">urgent</code>
+                <code style="font-size: 0.78rem; background: #fee2e2; color: #991b1b; padding: 2px 6px; border-radius: 4px;">refund</code>
+                <code style="font-size: 0.78rem; background: #fee2e2; color: #991b1b; padding: 2px 6px; border-radius: 4px;">broken</code>
+                <code style="font-size: 0.78rem; background: #fee2e2; color: #991b1b; padding: 2px 6px; border-radius: 4px;">charged twice</code>
+                <code style="font-size: 0.78rem; background: #fee2e2; color: #991b1b; padding: 2px 6px; border-radius: 4px;">never arrived</code>
+                <code style="font-size: 0.78rem; background: #fee2e2; color: #991b1b; padding: 2px 6px; border-radius: 4px;">fraud</code>
+                <code style="font-size: 0.78rem; background: #fee2e2; color: #991b1b; padding: 2px 6px; border-radius: 4px;">unacceptable</code>
+              </td>
+              <td>
+                <strong style="color: #991b1b;">Immediate Escalation:</strong> Route directly to on-call senior support / refund resolution tier within 1 hour.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="badge badge-priority-medium">⚡ MEDIUM</span>
+              </td>
+              <td style="font-size: 0.88rem; line-height: 1.5;">
+                Feedback classified as <strong>Negative Sentiment</strong> without acute urgency keywords or severe anger/fear triggers (e.g. minor delays, feature inconvenience).
+              </td>
+              <td>
+                <strong style="color: #92400e;">Standard SLA:</strong> Normal ticket review and response within standard operational hours (24–48 hours).
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="badge badge-priority-low">🟢 LOW</span>
+              </td>
+              <td style="font-size: 0.88rem; line-height: 1.5;">
+                Feedback classified as <strong>Positive</strong> or <strong>Neutral Sentiment</strong> (praise, suggestions, neutral product observations).
+              </td>
+              <td>
+                <strong style="color: #166534;">Trend Monitoring:</strong> Ingested into long-term product analytics, NPS calculation, and feature roadmap tracking.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 5: Tech Stack Summary -->
+  <div class="panel">
+    <div class="panel-header">
+      <h2 class="panel-title">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 20V10"></path>
+          <path d="M12 20V4"></path>
+          <path d="M6 20v-6"></path>
+        </svg>
+        5. Technology Stack Summary
+      </h2>
+    </div>
+    <div class="panel-body">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
+        
+        <div style="padding: 1rem; background: #f8fafc; border: 1px solid var(--border-subtle); border-radius: var(--radius-md);">
+          <div style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Backend Framework</div>
+          <div style="font-weight: 700; font-size: 1.05rem; color: var(--text-primary); margin-top: 0.2rem;">Python 3 + Flask 3.x</div>
+          <p style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.3rem;">Lightweight WSGI routing and Jinja2 templating.</p>
+        </div>
+
+        <div style="padding: 1rem; background: #f8fafc; border: 1px solid var(--border-subtle); border-radius: var(--radius-md);">
+          <div style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Machine Learning</div>
+          <div style="font-weight: 700; font-size: 1.05rem; color: var(--text-primary); margin-top: 0.2rem;">Scikit-learn + Pandas</div>
+          <p style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.3rem;">TF-IDF vectorizer pipelines and Logistic Regression.</p>
+        </div>
+
+        <div style="padding: 1rem; background: #f8fafc; border: 1px solid var(--border-subtle); border-radius: var(--radius-md);">
+          <div style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Database Storage</div>
+          <div style="font-weight: 700; font-size: 1.05rem; color: var(--text-primary); margin-top: 0.2rem;">SQLite3 (feedback.db)</div>
+          <p style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.3rem;">Embedded zero-config ACID relational persistence.</p>
+        </div>
+
+        <div style="padding: 1rem; background: #f8fafc; border: 1px solid var(--border-subtle); border-radius: var(--radius-md);">
+          <div style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Frontend &amp; Visuals</div>
+          <div style="font-weight: 700; font-size: 1.05rem; color: var(--text-primary); margin-top: 0.2rem;">HTML5, CSS3 &amp; Chart.js</div>
+          <p style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.3rem;">Hardware-accelerated canvas analytics charts.</p>
+        </div>
+
+      </div>
+
+      <div style="margin-top: 1.5rem; text-align: center; padding: 1rem; background: #f8fafc; border-radius: var(--radius-md); font-size: 0.85rem; color: var(--text-secondary);">
+        Developed for Mini Project Evaluation &bull; <strong>Department of Computer Science and Engineering</strong> &bull; Sona College of Technology, Salem, Tamil Nadu
+      </div>
+    </div>
+  </div>
+
+</div>
+{% endblock %}

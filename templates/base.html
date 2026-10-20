@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{% block title %}FeedbackIQ - AI Feedback & Emotion Analytics{% endblock %}</title>
+  
+  <!-- Favicon / Visual SVG -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>">
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  {% block extra_css %}{% endblock %}
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="brand-wrapper">
+        <a href="{{ url_for('index') }}" class="brand-wrapper" aria-label="FeedbackIQ Home">
+          <div class="brand-logo-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              <path d="M8 10h.01"></path>
+              <path d="M12 10h.01"></path>
+              <path d="M16 10h.01"></path>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <span class="brand-title">Feedback<span>IQ</span></span>
+            <span class="brand-tag">AI Sentiment & Emotion Engine</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Mobile Nav Toggle -->
+      <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <!-- Navigation Links -->
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li class="nav-item {% if request.endpoint == 'index' %}active{% endif %}">
+            <a href="{{ url_for('index') }}">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <rect x="3" y="3" width="7" height="9"></rect>
+                <rect x="14" y="3" width="7" height="5"></rect>
+                <rect x="14" y="12" width="7" height="9"></rect>
+                <rect x="3" y="16" width="7" height="5"></rect>
+              </svg>
+              Dashboard
+            </a>
+          </li>
+          <li class="nav-item {% if request.endpoint == 'analyze' %}active{% endif %}">
+            <a href="{{ url_for('analyze') }}">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M12 20h9"></path>
+                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+              </svg>
+              Single Analysis
+            </a>
+          </li>
+          <li class="nav-item {% if request.endpoint == 'upload' %}active{% endif %}">
+            <a href="{{ url_for('upload') }}">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="17 8 12 3 7 8"></polyline>
+                <line x1="12" y1="3" x2="12" y2="15"></line>
+              </svg>
+              Batch Upload
+            </a>
+          </li>
+          <li class="nav-item {% if request.endpoint == 'history' %}active{% endif %}">
+            <a href="{{ url_for('history') }}">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              History
+            </a>
+          </li>
+          <li class="nav-item {% if request.endpoint == 'about' %}active{% endif %}">
+            <a href="{{ url_for('about') }}">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              About
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Flash Messages -->
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <div class="flash-container">
+        {% for category, message in messages %}
+          <div class="flash-message {{ category }}" role="alert">
+            <div class="flash-content">
+              {% if category in ['error', 'danger'] %}
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="15" y1="9" x2="9" y2="15"></line>
+                  <line x1="9" y1="9" x2="15" y2="15"></line>
+                </svg>
+              {% elif category == 'warning' %}
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                  <line x1="12" y1="9" x2="12" y2="13"></line>
+                  <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+              {% else %}
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+              {% endif %}
+              <span>{{ message }}</span>
+            </div>
+            <button type="button" class="flash-dismiss" aria-label="Dismiss alert">&times;</button>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
+
+  <!-- Main Content Block -->
+  <main class="main-wrapper">
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Clear History Confirmation Modal -->
+  <div class="modal-backdrop" id="clearHistoryModal" role="dialog" aria-modal="true" aria-labelledby="clearModalTitle" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title" id="clearModalTitle">Clear Feedback Database?</h3>
+        <button type="button" class="modal-close" data-action="close-clear-modal" aria-label="Close dialog">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>This action will permanently delete all customer feedback entries, emotion analyses, category classifications, and priority records from the SQLite database.</p>
+        <p style="margin-top: 0.75rem; color: #dc2626; font-weight: 600;">This action cannot be undone. Make sure you have exported any needed records to CSV first.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-action="close-clear-modal">Cancel</button>
+        <form method="POST" action="{{ url_for('clear_history') }}" style="display:inline;">
+          <input type="hidden" name="action" value="clear">
+          <button type="submit" class="btn btn-danger">Confirm Delete All</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modern Footer -->
+  <footer class="app-footer">
+    <div class="footer-inner">
+      <div class="footer-brand-info">
+        <div class="footer-title">FeedbackIQ &bull; Customer Feedback & Emotion Intelligence System</div>
+        <div class="footer-meta">Powered by Python, Flask, Scikit-learn (TF-IDF + Logistic Regression), SQLite &amp; Chart.js</div>
+      </div>
+      <div class="footer-institution">
+        <div class="institution-name">Sona College of Technology, Salem</div>
+        <div class="dept-name">Department of Computer Science and Engineering</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Custom Dashboard Script -->
+  <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+  {% block extra_js %}{% endblock %}
+</body>
+</html>
